@@ -46,7 +46,7 @@
                                 :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing"
                             >
-                                Save
+                                Update data
                             </BreezeButton>
                         </div>
                     </form>
@@ -65,19 +65,14 @@ import BreezeLabel from "@/Components/Label.vue";
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 
-defineProps((props) => {
-    return {
-        message: props.message,
-    };
+const props = defineProps({
+    community: Object,
+    errors: Object
 });
 
-const form = useForm({
-    name: "",
-    description: "",
-    slug: "",
-});
+const form = useForm(props.community);
 
 const submit = () => {
-    form.post(route("communities.store"));
+    form.put(route("communities.update", props.community.id));
 };
 </script>
