@@ -12,6 +12,20 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
+        <div v-if="$page.props.flash.message" class="bg-green-400">
+            <div class="max-w-7xl mx-autopy-3 py-3 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-betweem flex-wrap">
+                    <div class="w-0 flex-1 flex items-center">
+                        <div class="ml-3 font-medium text-white truncate">
+                            <sapan class="md:hidden">{{ $page.props.flash.message }}</sapan>
+                            <span class="hidden md:inline">
+                                {{ $page.props.flash.message }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->

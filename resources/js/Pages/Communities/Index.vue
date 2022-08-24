@@ -35,7 +35,7 @@
                                                     Name</th>
                                                 <th scope="col"
                                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                    Description</th>
+                                                    Slug</th>
                                                 <th scope="col"
                                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                     Action</th>
@@ -49,11 +49,11 @@
                                                     {{ community.name }}</td>
 
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    {{ community.description }}</td>
+                                                    {{ community.slug }}</td>
                                                 <td
                                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                                    <Link :href="route('communities.edit', community.id)" class="text-indigo-600 hover:text-indigo-900">Edit<span
-                                                            class="sr-only">, Lindsay Walton</span></Link>
+                                                    <Link :href="route('communities.edit', community.id)" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</Link>
+                                                    <Link :href="route('communities.destroy', community.id)" class="text-red-600 hover:text-red-900" method="delete" as="button" type="button">Delete</Link>
                                                 </td>
                                             </tr>
 
