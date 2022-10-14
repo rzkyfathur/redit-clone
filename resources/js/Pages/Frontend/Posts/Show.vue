@@ -12,17 +12,15 @@
         </template>
 
         <section class="m-2 p-2 flex md:flex-row">
-           <div class="w-8/12">
-            <PostCard v-for="post in posts.data" :post="post" :community="community.slug" :key="post.id" />
-            <div class="mt-2 p-4">
-                <Pagination :links="posts.meta.links"/>
+            <div class="w-8/12">
+               <h2>{{post.title}}</h2>
+               <p>Post detail</p>
             </div>
-           </div>
-           <div class="w-4/12 p-4">
-           <div class="m-2 p-2 bg-slate-500 text-white">
-                <h2>Latest Communities</h2>
-           </div>
-           </div>
+            <div class="w-4/12 p-4">
+                <div class="m-2 p-2 bg-slate-500 text-white">
+                    <h2>Latest Communities</h2>
+                </div>
+            </div>
         </section>
 
     </guest-layout>
@@ -30,13 +28,13 @@
 
 <script setup>
 import GuestLayout from "@/Layouts/Guest.vue";
-import {Link} from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/inertia-vue3";
 import PostCard from "@/Components/PostCard.vue";
 import Pagination from "@/Components/Pagination.vue";
 
 defineProps({
     community: Object,
-    posts: Object,
+    post: Object,
 })
 </script>
 

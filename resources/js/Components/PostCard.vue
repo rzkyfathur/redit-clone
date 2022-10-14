@@ -4,7 +4,7 @@
         max-w-4xl
         flex
         bg-white
-        rounded-lg
+        rounded-md
         border border-gray-200
         shadow-md
 
@@ -21,14 +21,13 @@
 
                 </div>
             </div>
-            <Link href="#">
+            <Link :href="route('frontend.posts.show', [community, post.slug])">
             <h5 class="
             mb-2
             text-2xl
             font-bold
             tracking-tight
             text-gray-900
-            dark:text-white
             hover:text-indigo-700
           ">
                 {{post.title}}
@@ -39,7 +38,7 @@
             </p>
             <div class="flex m-2 p-2">
                 <p class="mr-4 p-2">Comments</p>
-                <Link href="#" class="
+                <Link :href="route('frontend.posts.show', [community, post.slug])" class="
             inline-flex
             items-center
             py-2
@@ -67,9 +66,10 @@
 </template>
 
 <script setup>
+import {Link} from '@inertiajs/inertia-vue3'
 defineProps({
     post: Object,
-    community: Object,
+    community: String,
 });
 </script>
 
