@@ -29,9 +29,9 @@ Route::get('/', function () {
 });
 
 
+Route::get('/r/{slug}', [FrontendCommunityController::class, 'show'])->name('frontend.communities.show');
+Route::get('/r/{community_slug}/posts/{post:slug}', [PostController::class, 'show'])->name('frontend.posts.show');
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('/r/{slug}', [FrontendCommunityController::class, 'show'])->name('frontend.communities.show');
-    Route::get('/r/{community_slug}/posts/{post:slug}', [PostController::class, 'show'])->name('frontend.posts.show');
 
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
